@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+    <title>School Profile</title>
+</head>
+<header>
+    <div class="container">
+        <button type="button" onclick="location.href='index.html'">Home</button>
+        <button type="button" onclick="location.href='profile.html';">Our Profile</button>
+        <button type="button"  onclick="location.href='index.html#form-section';">Message Us</button>
+    </div>
+</header>
+<body>
+    <div class="profile-text"> OUR PROFILE</div>
+    <div class="slideshow-container">
+        <img style="display: block;" class="imgslideshow" src="./recis2.jpg" style="width:100%">
+        <img style="display: none;" class="imgslideshow" src="./recis3.jpg" style="width:100%">
+        <img style="display: none;" class="imgslideshow" src="./recis1.jpg" style="width:100%">
+  </div>
+  <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+      <script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("imgslideshow");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000);
+}
+      </script>
+      </div>
+
+<div class="float-container">
+   <div class="float-child">
+        <div class="imgprofile">
+            <img src="https://i0.wp.com/reginapacis.sch.id/wp-content/uploads/2020/02/Ruang-Kelas-SMA-12-scaled.jpg?resize=768%2C576&ssl=1">
+        </div>
+   </div>
+   <div class="float-child">
+        <div class="textprofile">
+        <p style="text-indent: 30px ;">SMA Regina Pacis Bogor didirikan pada tanggal 1 Agustus 1955. Pada saat itu dipimpin oleh Sr. Berenice, FMM, berasal dari Amerika Serikat.
+            Pada saat itu SMA Regina Pacis Bogor hanya menerima murid putri saja, baru pada tahun ajaran 1962 menerima murid putra.
+            Karena pada saat itu belum memiliki gedung SMA maka digunakan gedung SMP sehingga kegiatan belajar mengajar dilakukan seusai murid-murid SMP belajar sampai akhirnya memiliki gedung sendiri.  </p>
+        <p style="text-indent: 30px;">Agustus 1988, gedung SMA didesain dan dibangun dengan penambahan ruang-ruang sesuai pesatnya perkembangan pendidikan.
+            Akhirnya pada tahun 1989, gedung berlantai 3 untuk kegiatan belajar mengajar beridri dengan megahnya. 
+            Untuk Tahun ajaran 2013/2014 jumlah peserta didik SMA 898 anak sedang jumlah kelas 27 kelas di gedung dengan 3 lantai tersebut.
+        </p>
+        </div>
+     </div>
+</div>
+<div class="float-container">
+    <div class="float-child">
+        <div class="textprofile">
+         <p>Visi</p>
+Menjadi institusi yang menumbuhkembangkan warganya menjadi pribadi yang utuh berlandaskan semangat FMM
+        <p>Misi</p>
+1. Memampukan warga untuk belajar secara holistik (to learn how to learn)
+<p>2. Menumbuhkembangkan potensi warga</p>
+3. Menjadikan “pribadi yang tersedia bagi sesama” dan menghilangkan alienasi/keterasingan
+<p>4. Aktif dalam mewujudkan kebenaran, kebaikan dan keindahan, perdamaian, keadilan dan keutuhan ciptaan</p>
+        </div>
+   </div>
+   <div class="float-child">
+        <div class="imgprofile">
+        <img src="https://i0.wp.com/reginapacis.sch.id/wp-content/uploads/2020/01/Bagan-Core-Values.jpg?resize=1258%2C800&ssl=1">
+        </div>
+   </div>
+</div>
+
+</body>
+
+<footer>
+    <div class="footer">
+    <p>Created by Alesia Belina Safitri</p>
+    </div>
+  </footer>

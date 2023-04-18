@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>School Profile</title>
+</head>
+<header>
+    <div class="container">
+        <button>Home</button>
+        <button type="button" onclick="location.href='profile.html';">Our Profile</button>
+        <button type="button" onclick="location.href='#form-section';">Message Us</button>
+    </div>
+</header>
+
+<body>
+    <div class="opening">
+    <h1 class="main-content">Hi <span id="nama"></span>, Welcome to Website</h1>
+    <script>
+        var nama = prompt("Masukkan nama kamu");
+        var element = document.getElementById("nama").innerText = nama;
+        console.log(element);
+    </script>
+    
+    <h2>Take a look at our school information</h2>
+
+    <div class="slideshow-container">
+          <img style="display: block;" class="imgslideshow" src="./recis2.jpg" style="width:100%">
+          <img style="display: none;" class="imgslideshow" src="./recis3.jpg" style="width:100%">
+          <img style="display: none;" class="imgslideshow" src="./recis1.jpg" style="width:100%">
+      <a class="prev" onclick="plusSlides(-1)"> ❮ </a>
+      <a class="next" onclick="plusSlides(1)"> ❯</a>
+    </div>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+        <script>
+let slideIndex = 1;
+showSlides(slideIndex);
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("imgslideshow");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+        </script>
+        </div>
+
+<div class="facilitation">
+    <p>Our Facilitation</p>
+    <div class="gallery">
+        <div class="imgfacilitation"><img src="https://i0.wp.com/reginapacis.sch.id/wp-content/uploads/2020/02/SMA-Laboraturium-Fisika-1-scaled.jpg?resize=768%2C576&ssl=1">
+        <p> Laboratorium Fisika</p></div>
+        <div class="imgfacilitation"><img src="https://i0.wp.com/reginapacis.sch.id/wp-content/uploads/2020/02/SMA-LAboraturium-Kimia-4-1-scaled.jpg?resize=768%2C576&ssl=1">
+        <p> Laboratorium Kimia</p></div>
+        <div class="imgfacilitation"><img src="https://i0.wp.com/reginapacis.sch.id/wp-content/uploads/2020/02/Laboraturium-Biologi-SMA-14-1-scaled.jpg?resize=1400%2C681&ssl=1">
+        <p> Laboratorium Biologi</p></div>
+        <div class="imgfacilitation"><img src="https://i0.wp.com/reginapacis.sch.id/wp-content/uploads/2020/02/SMA-Ruang-Audiovisual-2-scaled.jpg?resize=768%2C576&ssl=1">
+        <p> Ruang Audio Visual</p></div>
+        <div class="imgfacilitation"><img src="https://i0.wp.com/reginapacis.sch.id/wp-content/uploads/2020/02/Perpustakaan-SMPSMA-19-scaled.jpg?resize=768%2C576&ssl=1">
+        <p> Perpustakaan</p></div>
+        <div class="imgfacilitation"><img src="https://i0.wp.com/reginapacis.sch.id/wp-content/uploads/2020/03/Ruang-Komputer-SMA-1-scaled.jpg?resize=768%2C576&ssl=1">
+        <p> Ruang Komputer</p></div>
+        <div class="imgfacilitation"><img src="https://i0.wp.com/reginapacis.sch.id/wp-content/uploads/2020/02/Ruang-Serbaguna-4-scaled.jpg?resize=768%2C576&ssl=1">
+        <p> Ruang Serbaguna</p></div>
+    </div>
+</div>
+    
+<div class="messagetitle">
+<b>Message Us</b>
+</div>
+  <div class="float-container">
+    <div class="float-child">
+    <div id="form-section" class="form-section">
+    <form class="message-form" name="message-form" method="get">
+      <label>Nama&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+      <input size="24" id="sender-full-name" placeholder="Nama" type="text" name="full-name">
+      <br>
+      <label>Tanggal Lahir:</label><input id="sender-birth-date" placeholder="tanggal-lahir" type="date" name="birth-date">
+      <br>
+      Jenis Kelamin: 
+      <label for="perempuan"><input name="gender" type="radio" value="Laki-laki"> Laki-laki</label>
+      <label for="laki-laki"><input name="gender" type="radio" value="Perempuan">Perempuan</label>
+      <br>
+      <label>Pesan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label>
+      <textarea rows="3" cols="24" id="sender-messages" placeholder="Pesan" type="text" name="messages"></textarea>
+      <br>
+      <input id="submit" class="submit" type="submit" value="Submit" onclick="validateForm()">
+      <script>
+        document.getElementById("submit").addEventListener("click", function(event){
+        event.preventDefault()
+        });
+      </script>
+      </form>
+      <script>
+        function validateForm(){
+          var name = document.getElementById("sender-full-name").value;
+          var date = document.getElementById("sender-birth-date").value;
+          var gender = document.querySelector('input[name="gender"]:checked').value;;
+          var messages = document.getElementById("sender-messages").value;
+        
+          if (name == "" || date == "" || gender == "" || messages == "")
+          {alert ("Input tidak boleh kosong");
+          return false;}
+        
+          document.getElementById("sender-full-name-value").innerHTML = name;
+          document.getElementById("sender-birth-date-value").innerHTML = date;
+          document.getElementById("sender-gender").innerHTML = gender;
+          document.getElementById("sender-messages-value").innerHTML = messages;
+          return false;
+          }
+          </script>
+        </div>
+        </div>
+        
+<div class="float-child">
+  <div class="output">
+    <p>Nama&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="sender-full-name-value"></span></p>
+    <p>Tanggal Lahir: <span id="sender-birth-date-value"></span></p>
+    <p>Jenis Kelamin: <span id="sender-gender"></span> </p>
+    <p>Pesan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="sender-messages-value"></span></p>
+    </div>
+    </div>
+    </div>
+        
+</body>
+<footer>
+  <div class="footer">
+  <p>Created by Alesia Belina Safitri</p>
+  </div>
+</footer>
+</html>
